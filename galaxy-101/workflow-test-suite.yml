@@ -1,0 +1,51 @@
+##########################################################################################
+#  Global settings
+##########################################################################################
+enable_debug:   "False"                                  # enable debug level
+output_folder:  "results"                                # path folder for outputs
+
+##########################################################################################
+#  Workflow tests
+##########################################################################################
+workflows:
+
+  ########################################################################################
+  # workflow test case: "workflow_test_case_1"
+  ########################################################################################
+  workflow_test_case_1:
+
+    # worflow definition file (i.e., `.ga`file)
+    file: "workflow.ga"
+
+    # input section
+    #######################################################################################
+    inputs:
+    
+      # short form
+      # input_0: "inputs/Galaxy101-Exons.bed"
+
+      # extended form
+      InputExons:
+        file: "inputs/Galaxy101-Exons.bed"
+        type: "bed"
+    
+      # short form
+      # input2: "inputs/Galaxy101-SNPs.bed"
+
+      # extended form
+      InputSNPs:
+        file: "inputs/Galaxy101-SNPs.bed"
+        type: "bed"
+    
+    # expected outputs
+    #######################################################################################
+    expected:
+    
+      # short form
+      # out_file1: "expected/out_file1.bed"
+
+      # extended form
+      out_file1:
+        file: "expected/out_file1.bed"
+        comparator: "filecmp.cmp"
+    
